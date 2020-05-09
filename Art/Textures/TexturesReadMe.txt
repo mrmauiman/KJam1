@@ -1,0 +1,1 @@
+This folder will only contain Textures for models UV unwraps

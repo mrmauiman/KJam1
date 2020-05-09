@@ -1,0 +1,1 @@
+This folder will only contain image files for UI elements
