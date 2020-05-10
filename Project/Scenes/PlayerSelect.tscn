@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="PlayerSelect" type="MarginContainer"]
+margin_right = 1026.0
+margin_bottom = 600.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1026.0
+margin_bottom = 600.0
+
+[node name="Player 1" type="VBoxContainer" parent="HBoxContainer"]
+margin_bottom = 600.0
+
+[node name="Player Label" type="TextureRect" parent="HBoxContainer/Player 1"]
+
+[node name="Controllers" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 600.0
+
+[node name="Player 2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = 600.0
