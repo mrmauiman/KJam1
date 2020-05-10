@@ -1,0 +1,38 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/KinematicBody.gd" type="Script" id=1]
+[ext_resource path="res://Models/maid.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Materials/maid_texture.tres" type="Material" id=3]
+[ext_resource path="res://Materials/Hair.tres" type="Material" id=4]
+[ext_resource path="res://Materials/Scunchy.tres" type="Material" id=5]
+[ext_resource path="res://Materials/Skin.tres" type="Material" id=6]
+[ext_resource path="res://Materials/Energy.tres" type="Material" id=7]
+[ext_resource path="res://Materials/Cassing.tres" type="Material" id=8]
+[ext_resource path="res://Materials/Button.tres" type="Material" id=9]
+[ext_resource path="res://Materials/nob.tres" type="Material" id=10]
+[ext_resource path="res://Materials/Hose.tres" type="Material" id=11]
+
+[sub_resource type="CapsuleShape" id=1]
+height = 3.86694
+
+[node name="Maid" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+script = ExtResource( 1 )
+
+[node name="maid" type="MeshInstance" parent="KinematicBody"]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 5 )
+material/3 = ExtResource( 6 )
+material/4 = ExtResource( 7 )
+material/5 = ExtResource( 8 )
+material/6 = ExtResource( 9 )
+material/7 = ExtResource( 10 )
+material/8 = ExtResource( 11 )
+material/9 = ExtResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 0.0607014, 0.998156, 0, -0.998156, 0.0607014, 0, 2.91117, -0.125631 )
+shape = SubResource( 1 )

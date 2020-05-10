@@ -1,1 +1,0 @@
-This folder will only contain .fbx model files
