@@ -1,7 +1,10 @@
-extends KinematicBody
+extends RigidBody
 
-const speed = 10
-var velocity = Vector3.ZERO
+const speed = 4
+const threshold = 1
+var velocity = Vector3.ZERO setget set_velocity, get_velocity
+var timer = 0
+var life_span = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,10 +23,27 @@ func _physics_process(delta):
 			if i.global_transform.origin - global_transform.origin < closest.global_transform.origin - global_transform.origin:
 				closest = i
 		
-		var vec = (closest.global_transform.origin - global_transform.origin).normalized()
-		vec *= speed
-		velocity = vec
-	else:
-		velocity = Vector3.UP*-10
-	
-	move_and_slide(velocity, Vector3.UP)
+		var diff = closest.global_transform.origin - global_transform.origin
+		if diff.length() > threshold:
+			var vec = diff.normalized()
+			vec *= speed
+			apply_central_impulse(vec)
+		else:
+			closest.get_parent().score += 100
+			destroy()
+
+func destroy():
+	queue_free()
+
+func _process(delta):
+	timer += delta
+	if timer > life_span:
+		destroy()
+
+# Setters and Getters
+func set_velocity(vel):
+	velocity = vel
+	print(velocity)
+
+func get_velocity():
+	return velocity
