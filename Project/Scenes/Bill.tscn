@@ -20,7 +20,7 @@ shape = SubResource( 1 )
 bone_name = "Neck"
 
 [node name="SoftBody" type="SoftBody" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.140905, -0.287967 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.513234, -1.1192 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 parent_collision_ignore = NodePath("..")
@@ -29,13 +29,13 @@ drag_coefficient = 0.04
 pinned_points = [ 30, 31, 67 ]
 attachments/0/point_index = 30
 attachments/0/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/0/offset = Vector3( 0, -0.00299066, -0.0103416 )
+attachments/0/offset = Vector3( 0, 0.038422, -0.00870347 )
 attachments/1/point_index = 31
 attachments/1/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/1/offset = Vector3( -0.030482, -0.00299066, -0.0103416 )
+attachments/1/offset = Vector3( -0.121928, 0.038422, -0.00870347 )
 attachments/2/point_index = 67
 attachments/2/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/2/offset = Vector3( 0.030482, -0.00299066, -0.0103416 )
+attachments/2/offset = Vector3( 0.121928, 0.038422, -0.00870347 )
 
 [node name="Area" type="Area" parent="Area"]
 

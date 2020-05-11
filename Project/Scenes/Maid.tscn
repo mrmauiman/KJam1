@@ -16,7 +16,7 @@
 [sub_resource type="CapsuleShape" id=1]
 height = 3.86694
 
-[sub_resource type="CylinderShape" id=6]
+[sub_resource type="CylinderShape" id=2]
 radius = 3.48559
 height = 6.00366
 
@@ -26,6 +26,7 @@ emission_box_extents = Vector3( 0, 1, 0 )
 spread = 41.49
 gravity = Vector3( 10, 0, 0 )
 initial_velocity_random = 0.4
+angular_velocity = 7.79565
 
 [sub_resource type="SpatialMaterial" id=4]
 params_blend_mode = 1
@@ -67,7 +68,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12583, 2.86162, 1.58257 )
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody/Suck"]
 transform = Transform( 1, 0, 0, 0, -0.0435027, -0.999053, 0, 0.999053, -0.0435027, 0, -0.184175, 3.62282 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Particles" type="Spatial" parent="KinematicBody/Suck"]
 editor/display_folded = true
