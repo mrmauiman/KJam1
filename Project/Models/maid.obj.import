@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/maid.obj-caa1d5203d943167f7cc1127af866aac.mesh"
+
+[deps]
+
+files=[ "res://.import/maid.obj-caa1d5203d943167f7cc1127af866aac.mesh" ]
+
+source_file="res://Models/maid.obj"
+dest_files=[ "res://.import/maid.obj-caa1d5203d943167f7cc1127af866aac.mesh", "res://.import/maid.obj-caa1d5203d943167f7cc1127af866aac.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

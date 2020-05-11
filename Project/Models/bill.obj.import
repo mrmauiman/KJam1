@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bill.obj-acab8789b22c4786949d6ffc138d8532.mesh"
+
+[deps]
+
+files=[ "res://.import/bill.obj-acab8789b22c4786949d6ffc138d8532.mesh" ]
+
+source_file="res://Models/bill.obj"
+dest_files=[ "res://.import/bill.obj-acab8789b22c4786949d6ffc138d8532.mesh", "res://.import/bill.obj-acab8789b22c4786949d6ffc138d8532.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
