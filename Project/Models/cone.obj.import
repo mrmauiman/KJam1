@@ -15,4 +15,5 @@ dest_files=[ "res://.import/cone.obj-bbd9ca54a49f5b399d8c11ccd70b2229.mesh", "re
 
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
 optimize_mesh=true
