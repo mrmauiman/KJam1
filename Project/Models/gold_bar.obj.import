@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/gold_bar.obj-56de4fcbb824ca0f70c37da5a004e340.mesh"
+
+[deps]
+
+files=[ "res://.import/gold_bar.obj-56de4fcbb824ca0f70c37da5a004e340.mesh" ]
+
+source_file="res://Models/gold_bar.obj"
+dest_files=[ "res://.import/gold_bar.obj-56de4fcbb824ca0f70c37da5a004e340.mesh", "res://.import/gold_bar.obj-56de4fcbb824ca0f70c37da5a004e340.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

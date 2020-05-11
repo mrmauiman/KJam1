@@ -2,6 +2,7 @@ extends KinematicBody
 
 var controller = "controller_0" setget set_controller, get_controller
 var is_key_board = false setget set_is_key_board, get_is_key_board
+var holding = null setget set_holding, get_holding
 
 const gravity = 10
 const max_fall_speed = 20
@@ -10,12 +11,17 @@ const acceleration = 15
 const turn_speed = 5 # degrees
 const friction = 0.2
 const up = Vector3.UP
+const shoot_power = 40
+const dazed_timer = 3
 
 #enum states {FREE_MOVE, SUCKING, HOLDING}
 
 var speed = 0
 var rot = Vector2(1, 0)
 var velocity = Vector3.ZERO
+var dazed = false
+var timer = 0
+var score = 0
 #var state = states.FREE_MOVE
 
 # helpers
@@ -49,20 +55,25 @@ func free_move(delta):
 		speed = lerp(speed, 0, friction)
 		if (speed < 0.1):
 			speed = 0
-	print(speed)
 	
 	rot = rot.normalized()
 	velocity.x = rot.x * speed
 	velocity.z = rot.y * speed
 
 func sucking(delta):
-	if Input.is_action_pressed(controller + "_suck"):
+	if Input.is_action_pressed(controller + "_suck") and holding == null:
 		$Suck.visible = true
 	else:
 		$Suck.visible = false
 
-func holding():
-	pass
+func holding(delta):
+	if Input.is_action_just_pressed(controller + "_push") and holding != null:
+		holding.shoot()
+		holding = null
+
+func got_hit():
+	dazed = true
+	score = max(score-500, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,9 +88,16 @@ func _process(delta):
 #			sucking()
 #		states.HOLDING:
 #			holding()
-	free_move(delta)
-	sucking(delta)
-	move_and_slide(velocity, up)
+	if dazed:
+		timer+=delta
+		if timer > dazed_timer:
+			timer = 0
+			dazed = false
+	else:
+		free_move(delta)
+		sucking(delta)
+		holding(delta)
+		move_and_slide(velocity, up)
 
 # Setters and Getters
 func set_controller(new_controller):
@@ -90,3 +108,8 @@ func set_is_key_board(p_is_key_board):
 	is_key_board = p_is_key_board
 func get_is_key_board():
 	return is_key_board
+
+func set_holding(hold):
+	holding = hold
+func get_holding():
+	return holding

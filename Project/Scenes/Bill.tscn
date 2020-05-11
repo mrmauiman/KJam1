@@ -1,44 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/SoftBody.gd" type="Script" id=1]
 [ext_resource path="res://Models/bill.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Materials/bill_texture.tres" type="Material" id=3]
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.115174, 0.0856802, 0.106365 )
+
 [sub_resource type="SphereShape" id=1]
 radius = 0.287042
 
-[node name="Bill" type="Spatial"]
-
-[node name="Area" type="KinematicBody" parent="."]
+[node name="Bill" type="RigidBody"]
 script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.020834, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="BoneAttachment" type="BoneAttachment" parent="Area"]
+[node name="BoneAttachment" type="BoneAttachment" parent="."]
 bone_name = "Neck"
 
-[node name="SoftBody" type="SoftBody" parent="Area"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.513234, -1.1192 )
+[node name="SoftBody" type="SoftBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546, -1.12117 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 parent_collision_ignore = NodePath("..")
-damping_coefficient = 0.09
-drag_coefficient = 0.04
-pinned_points = [ 30, 31, 67 ]
-attachments/0/point_index = 30
+pinned_points = [ 19 ]
+attachments/0/point_index = 19
 attachments/0/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/0/offset = Vector3( 0, 0.038422, -0.00870347 )
-attachments/1/point_index = 31
-attachments/1/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/1/offset = Vector3( -0.121928, 0.038422, -0.00870347 )
-attachments/2/point_index = 67
-attachments/2/spatial_attachment_path = NodePath("../BoneAttachment")
-attachments/2/offset = Vector3( 0.121928, 0.038422, -0.00870347 )
+attachments/0/offset = Vector3( 0, 0.00565702, -0.0106721 )
 
-[node name="Area" type="Area" parent="Area"]
+[node name="Area" type="Area" parent="."]
 
-[node name="CollisionShape2" type="CollisionShape" parent="Area/Area"]
+[node name="CollisionShape2" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.020834, 0 )
 shape = SubResource( 1 )
